@@ -1058,27 +1058,6 @@
     
     
     <entry>
-      <title>leetcode 回文数</title>
-      <link href="2020/11/23/leetcode/leetcode%20%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%20%E5%9B%9E%E6%96%87%E6%95%B0/"/>
-      <url>2020/11/23/leetcode/leetcode%20%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%20%E5%9B%9E%E6%96%87%E6%95%B0/</url>
-      
-        <content type="html"><![CDATA[<p>思路<br>一.因为输入均为整数，所以如果是负数直接return false，个位数return true(减少时间，个位数也可以不直接return true，后面的len&gt;=2也可以解决)，其它的就用%取出最后一位，/(10的数字长度-1的次方)取出最高位，比较即可。<br>二.上一题的整数反转，判断反转后与原数是否相等。<br><a id="more"></a><br>@<a href="目录">TOC</a></p><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p><p>示例 1:</p><p>输入: 121<br>输出: true<br>示例 2:</p><p>输入: -121<br>输出: false<br>解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。<br>示例 3:</p><p>输入: 10<br>输出: false<br>解释: 从右向左读, 为 01 。因此它不是一个回文数。<br>进阶:</p><p>你能不将整数转为字符串来解决这个问题吗？</p><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/palindrome-number">https://leetcode-cn.com/problems/palindrome-number</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p><h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>一.因为输入均为整数，所以如果是负数直接return false，个位数return true(减少时间，个位数也可以不直接return true，后面的len&gt;=2也可以解决)，其它的就用%取出最后一位，/(10的数字长度-1的次方)取出最高位，比较即可。<br>二.上一题的整数反转，判断反转后与原数是否相等。</p><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-none"><code class="language-none">class Solution &#123;public:    bool isPalindrome(int x) &#123;        if(x&lt;0)        &#123;            return false;        &#125;        else if(x&lt;10)        &#123;            return true;        &#125;        else        &#123;            int len&#x3D;0;            for(int n&#x3D;x;n!&#x3D;0;n&#x2F;&#x3D;10)            &#123;                len++;            &#125;            int p&#x3D;1;            for(int m&#x3D;1;m&lt;len;m++)            &#123;                p*&#x3D;10;            &#125;            for(;len&gt;&#x3D;2;)                          &#x2F;&#x2F;len&gt;&#x3D;2不需考虑奇偶。            &#123;                if(x%10!&#x3D;x&#x2F;p)                      &#x2F;&#x2F;依次比较数字的第一位和最后一位                &#123;                    return false;                &#125;                len-&#x3D;2;                x%&#x3D;p;                              &#x2F;&#x2F;比较完之后消去第一位和最后一位                x&#x2F;&#x3D;10;                p&#x2F;&#x3D;100;                            &#125;            return true;        &#125;    &#125;&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> acm </tag>
-            
-            <tag> leetcode </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Csharp选择文件路径</title>
       <link href="2020/11/23/Csharp%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84/"/>
       <url>2020/11/23/Csharp%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84/</url>
@@ -1092,94 +1071,6 @@
             <tag> c# </tag>
             
             <tag> c#初学者总结 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>leetcode 整数反转</title>
-      <link href="2020/11/23/leetcode/leetcod%20%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%20%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/"/>
-      <url>2020/11/23/leetcode/leetcod%20%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%20%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</url>
-      
-        <content type="html"><![CDATA[<p>思路<br>由题目描述先记录一下正负号，把数字都变为正数，再用取余运算，将数字倒过来就行了。<br><a id="more"></a><br>@<a href="目录">TOC</a></p><h1 id="1-题目"><a href="#1-题目" class="headerlink" title="1.题目"></a>1.题目</h1><p>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p><p>示例 1:</p><p>输入: 123<br>输出: 321<br> 示例 2:</p><p>输入: -123<br>输出: -321<br>示例 3:</p><p>输入: 120<br>输出: 21<br>注意:</p><p>假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。</p><h2 id="数据范围为（-2的31次方）到（2的31次方-1）"><a href="#数据范围为（-2的31次方）到（2的31次方-1）" class="headerlink" title="数据范围为（-2的31次方）到（2的31次方-1）"></a>数据范围为（-2的31次方）到（2的31次方-1）</h2><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/reverse-integer">https://leetcode-cn.com/problems/reverse-integer</a></p><h1 id="2-思路"><a href="#2-思路" class="headerlink" title="2.思路"></a>2.思路</h1><p>由题目描述先记录一下正负号，把数字都变为正数，再用取余运算，将数字倒过来就行了。</p><h1 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3.代码实现"></a>3.代码实现</h1><pre class="line-numbers language-none"><code class="language-none">class Solution &#123;public:    long long reverse(long long x) &#123;        bool symbol&#x3D;0;                           &#x2F;&#x2F;标记正负号，正数为0，负数为1。        long long top&#x3D;2147483648-1;              &#x2F;&#x2F;数据范围最大值top或者直接INT_MAX        if(x&lt;0)        &#123;            symbol&#x3D;1;            x&#x3D;-x;            top++;                               &#x2F;&#x2F;负数最大值top要+1（与输入数字的绝对值比，所以只需+1即可）        &#125;        long long target&#x3D;0;                      &#x2F;&#x2F;反转后的整数        long long n&#x3D;x;         int len&#x3D;0;        for(;n!&#x3D;0;n&#x3D;n&#x2F;10)        &#123;            len++;                               &#x2F;&#x2F;整数的长度        &#125;        for(int i&#x3D;1;i&lt;&#x3D;len;i++)        &#123;            target&#x3D;target*10+x%10;             x&#x2F;&#x3D;10;        &#125;        if(target&gt;top)        &#123;            return 0;                            &#x2F;&#x2F;超出范围返回0        &#125;        else         &#123;            if(symbol&#x3D;&#x3D;1)            target&#x3D;-target;                      &#x2F;&#x2F;变回负数            return target;        &#125;    &#125;&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="4-其他细节"><a href="#4-其他细节" class="headerlink" title="4.其他细节"></a>4.其他细节</h1><p>一.符号<br>一开始想判断完符号，如果是负数直接输出负号，试了一次发现leetcode上将stdout(cin cout)输出的东西和return的值分开了，所以必须将最后的值变为负数，不能把符号和数分开，一起返回才行。</p><p>二.数据溢出</p><p>因为int型数据范围为（-2的31次方）到（2的31次方-1）-2147483648～+2147483647</p><p>如果是输入int型最大值2147483647，反转后为7463847412超过了int能表示的最大值，所以不能用int型，</p><p>long long型为（-2的63次方）到（2的63次方-1）-9223372036854775808～+9223372036854775807，所以用long long型就不会溢出了。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> acm </tag>
-            
-            <tag> leetcode </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>leetcode 两数之和 梦开始的地方。。。</title>
-      <link href="2020/11/23/leetcode/leetcode%20%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%20%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9%E3%80%82%E3%80%82%E3%80%82/"/>
-      <url>2020/11/23/leetcode/leetcode%20%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%20%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9%E3%80%82%E3%80%82%E3%80%82/</url>
-      
-        <content type="html"><![CDATA[<p>思路一 双重循环<br>将数组中的 每一个数 依次与 其后面的数 组合与target比较，如果相等直接（题目中说每种输入只有一个答案）返回两个数的位置i，j即可。<br>思路二 哈希表（还没学，学过之后回来更新）<br><a id="more"></a><br>@<a href="目录">TOC</a></p><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。</p><p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p><p>示例:</p><p>给定 nums = [2, 7, 11, 15], target = 9</p><p>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/two-sum">https://leetcode-cn.com/problems/two-sum</a></p><h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><h2 id="思路一-双重循环"><a href="#思路一-双重循环" class="headerlink" title="思路一 双重循环"></a>思路一 双重循环</h2><p>将数组中的 每一个数 依次与 其后面的数 组合与target比较，如果相等直接（题目中说每种输入只有一个答案）返回两个数的位置i，j即可。</p><h2 id="思路二-哈希表（还没学，学过之后回来更新）"><a href="#思路二-哈希表（还没学，学过之后回来更新）" class="headerlink" title="思路二 哈希表（还没学，学过之后回来更新）"></a>思路二 哈希表（还没学，学过之后回来更新）</h2><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>C++<br><pre class="line-numbers language-none"><code class="language-none">class Solution &#123;public:    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;        for(int i&#x3D;0;i&lt;nums.size()-1;i++)      &#x2F;&#x2F;外循环从头开始，到倒数第二个数为止        &#123;            for(int j&#x3D;i+1;j&lt;nums.size();j++)  &#x2F;&#x2F;内循环从i+1开始，到最后一个数为止            &#123;                if(target&#x3D;&#x3D;nums[i]+nums[j])                &#123;                    return &#123;i,j&#125;;             &#x2F;&#x2F;相比 int main（）中的“return 0；”返回整数是因为main（）函数是用int定义的，                &#125;                             &#x2F;&#x2F;而twosum是用vector定义的，vector是无限制的数组，因此要返回一个数组形式即&#123;i，j&#125;。            &#125;        &#125;        return &#123;&#125;;                            &#x2F;&#x2F;由于题目一定有一个答案，所以必须返回一个值，否则会报错。    &#125;&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p><h1 id="过程中出现的错误"><a href="#过程中出现的错误" class="headerlink" title="过程中出现的错误"></a>过程中出现的错误</h1><p>（1）vector中自带的函数.size()可以计算数组的长度（输入数的个数）<br>        我一开始以为sizeof（）可以计算数组长度，并且测试数据还过了，提交之后一直显示执行错误。。。<br>         结果sizeof（）是计算字节数的，导致计算多了，用了没有赋值的数组部分。<br>（2）还有一些数组下标的问题，简单模拟一下就能解决。</p><h1 id="其它相关知识点"><a href="#其它相关知识点" class="headerlink" title="其它相关知识点"></a>其它相关知识点</h1><h2 id="class类-（struct结构体）"><a href="#class类-（struct结构体）" class="headerlink" title="class类 （struct结构体）"></a>class类 （struct结构体）</h2><pre class="line-numbers language-none"><code class="language-none">class tree&#123;public:int left;char right;&#125;;tree one;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>以前用过几次，大概是这么个格式，类的里面可以定义各种类型的变量，相当于把几个变量联系在一块儿。<br>可以用one.left或者one.right调用里面的变量。<br>好像还可以在里面定义函数（目前还不会）</p><h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a><a href="https://blog.csdn.net/sandalphon4869/article/details/94589399?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.control">vector</a></h2><h2 id="sizeof（）"><a href="#sizeof（）" class="headerlink" title="sizeof（）"></a><a href="https://www.runoob.com/cplusplus/cpp-sizeof-operator.html">sizeof（）</a></h2><h2 id="数组a-中a和-amp-a的区别"><a href="#数组a-中a和-amp-a的区别" class="headerlink" title="数组a[]中a和&amp;a的区别"></a><a href="https://blog.csdn.net/weixin_34150503/article/details/94735330?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.control">数组a[]中a和&amp;a的区别</a></h2>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> acm </tag>
-            
-            <tag> leetcode </tag>
-            
-            <tag> 哈希 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>leetcode 有效的括号</title>
-      <link href="2020/11/23/leetcode/leetcode%20%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/"/>
-      <url>2020/11/23/leetcode/leetcode%20%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%20%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/</url>
-      
-        <content type="html"><![CDATA[<p>思路<br>栈的练习题，栈：元素后进先出.每次只判断栈顶的元素和要进入栈的元素是否匹配，如果匹配，栈顶的元素pop出去，结束之后如果栈为空，说明每个括号都匹配过了，为ture，否则为false。<br><a id="more"></a><br>@<a href="目录">TOC</a></p><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p><p>有效字符串需满足：</p><p>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。<br>注意空字符串可被认为是有效字符串。</p><p>示例 1:</p><p>输入: “()”<br>输出: true<br>示例 2:</p><p>输入: “()[]{}”<br>输出: true<br>示例 3:</p><p>输入: “(]”<br>输出: false<br>示例 4:</p><p>输入: “([)]”<br>输出: false<br>示例 5:</p><p>输入: “{[]}”<br>输出: true</p><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/valid-parentheses">https://leetcode-cn.com/problems/valid-parentheses</a></p><h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>栈的练习题，栈：元素后进先出.每次只判断栈顶的元素和要进入栈的元素是否匹配，如果匹配，栈顶的元素pop出去，结束之后如果栈为空，说明每个括号都匹配过了，为ture，否则为false。</p><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-none"><code class="language-none">class Solution &#123;public:    bool isValid(string s) &#123;        stack&lt;char&gt; a;        if(s.length()%2&#x3D;&#x3D;1)        &#123;            return false;        &#125;        for(int i&#x3D;0;i&lt;s.length();i++)        &#123;            if(a.empty())            &#123;                a.push(s[i]);            &#125;            else if((s[i]&#x3D;&#x3D;&#39;)&#39;&amp;&amp;a.top()&#x3D;&#x3D;&#39;(&#39;)||(s[i]&#x3D;&#x3D;&#39;]&#39;&amp;&amp;a.top()&#x3D;&#x3D;&#39;[&#39;)||(s[i]&#x3D;&#x3D;&#39;&#125;&#39;&amp;&amp;a.top()&#x3D;&#x3D;&#39;&#123;&#39;))            &#123;                a.pop();            &#125;            else             &#123;                a.push(s[i]);            &#125;        &#125;        if(a.empty())        &#123;            return true;        &#125;        else        &#123;            return false;        &#125;    &#125;&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="过程中出现的问题"><a href="#过程中出现的问题" class="headerlink" title="过程中出现的问题"></a>过程中出现的问题</h1><h2 id="a-top"><a href="#a-top" class="headerlink" title="a.top()"></a>a.top()</h2><p>该函数调用时，栈如果为空时会报错，<br>由于有先出现右括号的情况，所以判断<br><pre class="line-numbers language-none"><code class="language-none">if((s[i]&#x3D;&#x3D;&#39;)&#39;&amp;&amp;a.top()&#x3D;&#x3D;&#39;(&#39;)||(s[i]&#x3D;&#x3D;&#39;]&#39;&amp;&amp;a.top()&#x3D;&#x3D;&#39;[&#39;)||(s[i]&#x3D;&#x3D;&#39;&#125;&#39;&amp;&amp;a.top()&#x3D;&#x3D;&#39;&#123;&#39;))<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>的时候会用到a.top()函数，如果第一个括号直接就是右括号，栈里面没有元素，就会导致这个问题。<br>所以在上面加一个<br><pre class="line-numbers language-none"><code class="language-none">if(a.empty())            &#123;                a.push(s[i]);            &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><br>可以解决这个问题。<br><a href="https://blog.csdn.net/weixin_43975128/article/details/86631990">相关链接</a></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> acm </tag>
-            
-            <tag> leetcode </tag>
-            
-            <tag> 栈 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>leetcode 罗马数字转整数</title>
-      <link href="2020/11/23/leetcode/leetcode%20%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%20%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/"/>
-      <url>2020/11/23/leetcode/leetcode%20%E7%AE%80%E5%8D%95%E9%9A%BE%E5%BA%A6%20%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/</url>
-      
-        <content type="html"><![CDATA[<p>按规则一步一步判断即可</p><a id="more"></a><p>@<a href="目录">TOC</a></p><h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。</p><p>字符          数值<br>I              ———-1<br>V            ———5<br>X            ——-10<br>L             ———50<br>C             ——-100<br>D             ——-500<br>M             ——1000<br>例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做  XXVII, 即为 XX + V + II 。</p><p>通常情况下，罗马数字中小的数字在大的数字的右边。但也存在特例，例如 4 不写做 IIII，而是 IV。数字 1 在数字 5 的左边，所表示的数等于大数 5 减小数 1 得到的数值 4 。同样地，数字 9 表示为 IX。这个特殊的规则只适用于以下六种情况：</p><p>I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。<br>X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。<br>C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。<br>给定一个罗马数字，将其转换成整数。输入确保在 1 到 3999 的范围内。</p><p>示例 1:</p><p>输入: “III”<br>输出: 3<br>示例 2:</p><p>输入: “IV”<br>输出: 4<br>示例 3:</p><p>输入: “IX”<br>输出: 9<br>示例 4:</p><p>输入: “LVIII”<br>输出: 58<br>解释: L = 50, V= 5, III = 3.<br>示例 5:</p><p>输入: “MCMXCIV”<br>输出: 1994<br>解释: M = 1000, CM = 900, XC = 90, IV = 4.</p><p>提示：</p><p>题目所给测试用例皆符合罗马数字书写规则，不会出现跨位等情况。<br>IC 和 IM 这样的例子并不符合题目要求，49 应该写作 XLIX，999 应该写作 CMXCIX 。<br>关于罗马数字的详尽书写规则，可以参考 罗马数字 - Mathematics 。</p><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/roman-to-integer">https://leetcode-cn.com/problems/roman-to-integer</a></p><h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>按规则一步一步判断。。。</p><h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><pre class="line-numbers language-none"><code class="language-none">class Solution &#123;public:    int romanToInt(string s) &#123;        int len&#x3D;s.length();        int num&#x3D;0;        for(int i&#x3D;0;i&lt;len;i++)        &#123;            if(s[i]&#x3D;&#x3D;&#39;I&#39;)            &#123;                num+&#x3D;1;            &#125;            if(s[i]&#x3D;&#x3D;&#39;V&#39;)            &#123;                if(i&gt;&#x3D;1&amp;&amp;s[i-1]&#x3D;&#x3D;&#39;I&#39;)                num+&#x3D;3;                else                num+&#x3D;5;            &#125;            if(s[i]&#x3D;&#x3D;&#39;X&#39;)            &#123;                if(i&gt;&#x3D;1&amp;&amp;s[i-1]&#x3D;&#x3D;&#39;I&#39;)                num+&#x3D;8;                else                num+&#x3D;10;            &#125;            if(s[i]&#x3D;&#x3D;&#39;L&#39;)            &#123;                if(i&gt;&#x3D;1&amp;&amp;s[i-1]&#x3D;&#x3D;&#39;X&#39;)                num+&#x3D;30;                else                num+&#x3D;50;            &#125;            if(s[i]&#x3D;&#x3D;&#39;C&#39;)            &#123;                if(i&gt;&#x3D;1&amp;&amp;s[i-1]&#x3D;&#x3D;&#39;X&#39;)                num+&#x3D;80;                else                num+&#x3D;100;            &#125;            if(s[i]&#x3D;&#x3D;&#39;D&#39;)            &#123;                if(i&gt;&#x3D;1&amp;&amp;s[i-1]&#x3D;&#x3D;&#39;C&#39;)                num+&#x3D;300;                else                num+&#x3D;500;            &#125;            if(s[i]&#x3D;&#x3D;&#39;M&#39;)            &#123;                if(i&gt;&#x3D;1&amp;&amp;s[i-1]&#x3D;&#x3D;&#39;C&#39;)                num+&#x3D;800;                else                num+&#x3D;1000;            &#125;        &#125;        return num;    &#125;&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> acm </tag>
-            
-            <tag> leetcode </tag>
             
         </tags>
       
